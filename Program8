@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class UniqueNum {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter a number: ");
+		int num = scan.nextInt();
+		
+		int digit1 = 0, digit2 = 0, n1 = num, n2 = 0, f = 0;
+		
+		while(n1 > 0) {
+			
+			digit1 = n1 % 10;
+			n2 = n1 / 10;
+			
+			while(n2 > 0) {
+				
+				digit2 = n2 % 10;
+				if(digit1 == digit2) {
+					f = 1;
+				}
+				n2 /= 10;
+			}
+			n1 /= 10;
+		}
+		
+		if(f == 0) {
+			System.out.println("Unique Number");
+		} else {
+			System.out.println("Not a Unique Number");
+		}
+	}
+
+}
