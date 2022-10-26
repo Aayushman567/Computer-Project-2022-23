@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class LargestandSmallestDigit {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter a multidigit number: ");
+		int n = scan.nextInt();
+		
+		int smallest = 9;
+		int largest = 0;
+		
+		while(n != 0) {
+			
+			int digit = n % 10;
+			largest = Math.max(digit, largest);
+			smallest = Math.min(digit, smallest);
+			n /= 10;
+		}
+		
+		System.out.println("The largest digit is: " + largest);
+		System.out.println("The smallest digit is: " + smallest);
+		
+	}
+
+}
