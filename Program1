@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class LeadnHistroPair {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter your choice: ");
+		char choice = scan.next().charAt(0);
+		System.out.println("Enter a number: ");
+		int num = scan.nextInt();
+		int digit, sumOfEven = 0, sumOfOdd = 0;
+		double cubeOfOdds = 0.0D;
+		
+		switch(choice) {
+		
+		case 'L':
+			while(num > 0) {
+				digit = num % 10;
+				
+				if(digit % 2 == 0) {
+					sumOfEven += digit;
+				} else {
+					sumOfOdd += digit;
+				}
+				num = num / 10;
+			}
+			
+			if(sumOfEven == sumOfOdd) {
+				System.out.println("It is a Lead Number");
+			} else {
+				System.out.println("It is not a Lead Number");
+			}
+			break;
+			
+		case 'H':
+			while(num > 0) {
+				digit = num % 10;
+				
+				if(digit % 2 != 0) {
+					cubeOfOdds += Math.pow(digit, 3);
+				}
+				num = num / 10;
+			}
+			System.out.println("The histro pair of the number is: " + cubeOfOdds);
+			break;
+		
+		default:
+			System.out.println("Invalid Choice!");
+			break;
+			
+		}
+		
+	}
+
+}
