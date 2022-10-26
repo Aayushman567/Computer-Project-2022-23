@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class PairOfVowels {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter a sentence: ");
+		String sent = scan.nextLine();
+		String sentU = sent.toUpperCase();
+		
+		int l = sentU.length(), count = 0;
+		char ch = ' ', chr = ' ';
+		String vowel = "";
+		
+		System.out.print("Pair of Vowels: ");
+		for(int i = 0; i < (l-1); i++) {
+			
+			ch = sentU.charAt(i);
+			chr = sentU.charAt(i+1);
+			
+			if((ch == 'A'|| ch == 'E'|| ch == 'I'|| ch == 'O'|| ch == 'U') && (chr == 'A' || chr == 'E' || chr == 'I' || chr == 'O' || chr == 'U')) {
+				vowel = vowel + (char) ch + (char) chr;
+				System.out.print(vowel + ", ");
+				count++;
+			}
+			vowel = "";
+		}
+		
+		System.out.println();
+		System.out.println("No of pair of vowels: " + count);
+		
+	}
+
+}
