@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class CharacterArray {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter the number of characters to be accepted: ");
+		int noOfChar = scan.nextInt();
+		
+		char characters[] = new char[noOfChar];
+		int l = characters.length;
+		int asciiS = 0, asciiL = 0, asciiD = 0;
+		
+		System.out.println("Enter the characters: ");
+		for(int i = 0; i < l; i++) {
+			characters[i] = scan.next().charAt(0);
+		}
+		
+		for(int i = 0; i < l; i++) {
+			int ascii = (int) characters[i];
+			
+			if((ascii >= 32 && ascii <= 47) || (ascii >= 58 && ascii <= 64) || (ascii >= 91 && ascii <= 96) || (ascii >= 123 && ascii <= 126)) {
+				asciiS += ascii;
+			} else if((ascii >= 65 && ascii <= 90) || (ascii >= 97 && ascii <= 122)) {
+				asciiL += ascii;
+			} else if(ascii >= 48 && ascii <= 57) {
+				asciiD += ascii;
+			}
+		}
+		
+		System.out.println("Sum of ascii of letters: " + asciiL);
+		System.out.println("Sum of ascii of numbers: " + asciiD);
+		System.out.println("Sum of ascii of special characters: " + asciiS);
+		
+	}
+
+}
