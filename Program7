@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class TitleCase {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter a sentence in uppercase: ");
+		String sent = scan.nextLine();
+		sent += " ";
+		
+		int l = sent.length();
+		char ch = ' ', chr = ' ';
+		String s = " ", ls = " ", concat = " ", rest = " ";
+		
+		for(int i = 0; i < l; i++) {
+			
+			ch = sent.charAt(i);
+			
+			if(ch != ' ') {
+				s+=ch;
+			} else {
+				chr = s.charAt(1);
+				rest = s.substring(2);
+				ls = rest.toLowerCase();
+				concat += chr + ls + " ";
+				s = " ";
+			}
+		}
+		System.out.println(concat);
+		
+	}
+
+}
