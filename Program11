@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class StringPattern {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter a word: ");
+		String word = scan.nextLine();
+		int l = word.length();
+		
+		for(int i = (l-1); i >= 0; i--) {
+			for(int j = 0; j <= i; j++) {
+				System.out.print(word.charAt(j));
+			}
+			System.out.println();
+		}
+		
+	}
+
+}
