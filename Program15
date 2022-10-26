@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class SpecialorPalindrome {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter a word: ");
+		String word = scan.nextLine();
+		String wordU = word.toUpperCase();
+		
+		int l = wordU.length();
+		char ch = wordU.charAt(0), chr = wordU.charAt(l-1), charac = ' ';
+		boolean isSpecial = false, isPalindrome = false;
+		String palin = "";
+		
+		if(ch == chr) {
+			isSpecial = true;
+		}
+		
+		for(int i = 0; i < l; i++) {
+			charac = wordU.charAt(i);
+			palin = charac + palin;
+		}
+		
+		if(wordU.equals(palin)) {
+			isPalindrome = true;
+		}
+		
+		if(isPalindrome) {
+			System.out.println("The word is a palindrome");
+		} else if(isSpecial) {
+			System.out.println("The word is only a special word");
+		} else {
+			System.out.println("The word is neither palindrome nor special");
+		}
+		
+	}
+
+}
