@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class IntegersinDescendingOrder {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		int NT[] = new int[10];
+		int temp;
+		
+		for(int i = 0; i < 10; i++) {
+			System.out.println("Enter an integer: ");
+			NT[i] = scan.nextInt();
+		}
+		
+		for(int i = 0; i < 10; i++) {
+			for(int j = 0; j < 10; j++) {
+				if(NT[i] < NT[j]) {
+					temp = NT[i];
+					NT[i] = NT[j];
+					NT[j] = temp;
+				}
+			}
+		}
+		
+		for(int i = 0; i < 10; i++) {
+			System.out.println(NT[i]);
+		}
+	}
+
+}
