@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class CountryandCapital {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		String country[] = new String[10];
+		String capital[] = new String[10];
+		
+		System.out.println("Enter the name of the countries: ");
+		for(int i = 0; i < 10; i++) {
+			country[i] = scan.nextLine();
+		}
+		
+		System.out.println("Enter the name of the capitals: ");
+		for(int i = 0; i < 10; i++) {
+			capital[i] = scan.nextLine();
+		}
+		
+		System.out.println("Enter the country to be searched: ");
+		String search = scan.nextLine();
+		
+		int index = 0;
+		boolean found = false;
+		for(int i = 0; i < 10; i++) {
+			if(country[i].equalsIgnoreCase(search)) {
+				index = i;
+				found = true;
+			}
+		}
+		
+		if(found) {
+			System.out.println(country[index] + " " + capital[index]);
+		} else {
+			System.out.println("Sorry Not Found!");
+		}
+		
+	}
+
+}
