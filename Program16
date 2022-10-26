@@ -1,0 +1,84 @@
+import java.util.Scanner;
+
+public class Overload {
+
+	public static void main(String[] args) {
+		
+		Overload obj = new Overload();
+		
+		Scanner scan  = new Scanner(System.in);
+		
+		System.out.println("Enter your choice: ");
+		System.out.println("1 to find the product of the digits of a number");
+		System.out.println("2 to find the sum of all numbers between two numbers");
+		System.out.println("3 to find the largest of three numbers");
+		int choice = scan.nextInt();
+		
+		switch(choice) {
+			
+			case 1:
+				System.out.println("Enter the number: ");
+				int a = scan.nextInt();
+				obj.calculate(a);
+				break;
+				
+			case 2:
+				System.out.println("Enter the two numbers: ");
+				int e = scan.nextInt();
+				int f = scan.nextInt();
+				obj.calculate(e, f);
+				break;
+				
+			case 3:
+				System.out.println("Enter the three numbers: ");
+				int x = scan.nextInt();
+				int y = scan.nextInt();
+				int z = scan.nextInt();
+				obj.calculate(x, y, z);
+				break;
+				
+			default:
+				System.out.println("Invalid Choice!");
+		}
+		
+	} 
+	
+	public int calculate(int a) {
+		
+		int product = 1, digit = 0;
+		
+		while(a != 0) {
+			digit = a % 10;
+			product *= digit;
+			a /= 10;
+		}
+		return product;
+	}
+	
+	public int calculate(int e, int f) {
+		
+		int sum = 0;
+		for(int i = e; i <= f; i++) {
+			sum += i;
+		}
+		return sum;
+	}
+	
+	public int calculate(int x, int y, int z) {
+		
+		int largest;
+		if(x > y) {
+			largest = x;
+			if(x < z) {
+				largest = z;
+			}
+		} else {
+			largest = y;
+			if(y < z) {
+				largest = z;
+			}
+		}
+		return largest;
+	}
+
+}
