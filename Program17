@@ -1,1 +1,37 @@
-N/A
+import java.util.Scanner;
+
+public class RealNumbersArray {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		double realNums[] = new double[15];
+		int integers[] = new int[15];
+		int temp = 0;
+		
+		System.out.println("Enter 15 real numbers: ");
+		for(int i = 0; i < 15; i++) {
+			realNums[i] = scan.nextDouble();
+			integers[i] = (int) realNums[i];
+		}
+		
+		for(int i = 0; i < (integers.length - 1); i++) {
+			for(int j = 1; j < (integers.length - i); j++) {
+				if(integers[j] < integers[j-1]) {
+					temp = integers[j];
+					integers[j] = integers[j-1];
+					integers[j-1] = temp;
+				}
+			}
+		}
+		
+		System.out.println("The sorted array is: ");
+		for(int i = 0; i < 15; i++) {
+			System.out.print(integers[i] + ", ");
+		}
+		
+	}
+
+}
+
