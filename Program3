@@ -1,1 +1,45 @@
-N/A
+import java.util.Scanner;
+
+public class CityPopulation {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		String name[] = new String[10];
+		int population[] = new int[10];
+		
+		System.out.println("Enter the names of 10 cities: ");
+		for(int i = 0; i < 10; i++) {
+			name[i] = scan.nextLine();
+		}
+		
+		System.out.println("Enter the population of said cities: ");
+		for(int i = 0; i < 10; i++) {
+			population[i] = scan.nextInt();
+		}
+		
+		int temp1 = 0;
+		String temp2 = "";
+		
+		for(int i = 0; i < (population.length - 1); i++) {
+			for(int j = 1; j < (population.length - i); j++) {
+				if(population[j-1] < population[j]) {
+					temp1 = population[j];
+					population[j] = population[j-1];
+					population[j-1] = temp1;
+					temp2 = name[j];
+					name[j] = name[j-1];
+					name[j-1] = temp2;
+				}
+			}
+		}
+		
+		System.out.println("The sorted arrays: ");
+		for(int i = 0; i < 10; i++) {
+			System.out.println(name[i] + " - " + population[i]);
+		}
+		
+	}
+
+}
